@@ -41,9 +41,9 @@ class MainWindow : public QWidget {
 public:
 	// constructor
 	MainWindow	(QWidget *parent = 0);
-	void		getParams(ImagePtr, double, double, double);
-	void		getArtWidth(double);
-	void		getArtHeight(double);
+	void		getParams(ImagePtr&, double&, double&, double&);
+	void		getArtWidth(double&);
+	void		getArtHeight(double&);
 
 public slots:
 	int			load		();
@@ -91,6 +91,7 @@ private:
 	double m_artWidth;
 	double m_artHeight;
 	double m_ar; // aspect ratio
+
 
 	// widgets for input groupbox
 	QPushButton	*m_buttonIn[2];

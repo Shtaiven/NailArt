@@ -73,9 +73,9 @@ MainWindow::createGroupView()
 
 	// set centering alignment on both labels
 	QLabel *label;
-	label = (QLabel *) m_stackWidget->widget(0); label->setAlignment(Qt::AlignCenter);
-	label = (QLabel *) m_stackWidget->widget(1); label->setAlignment(Qt::AlignCenter);
-	m_stackWidget->addWidget(m_glWidget);
+	label = (QLabel *) m_stackWidget->widget(0); label->setAlignment(Qt::AlignCenter); // Input
+	label = (QLabel *) m_stackWidget->widget(1); label->setAlignment(Qt::AlignCenter); // Output
+	m_stackWidget->addWidget(m_glWidget); // GLWidget (Ortho and Perp view)
 
 	// set stacked widget to default view (output image)
 	m_stackWidget->setCurrentIndex(DefaultDisplay);
@@ -308,8 +308,6 @@ MainWindow::createGroupFilter()
 	groupBox->setLayout(vbox);
 
 	// init signal/slot connections
-	//connect(m_slider [0], SIGNAL(valueChanged(int)),    this, SLOT(changeThresholdI(int)));
-	//connect(m_spinBox[0], SIGNAL(valueChanged(double)), this, SLOT(changeThresholdD(double)));
 	connect(m_slider[0], SIGNAL(valueChanged(int)), this, SLOT(changeBrightnessI(int)));
 	connect(m_spinBox[0], SIGNAL(valueChanged(double)), this, SLOT(changeBrightnessD(double)));
 	connect(m_slider[1], SIGNAL(valueChanged(int)), this, SLOT(changeContrastI(int)));
@@ -436,7 +434,10 @@ MainWindow::load()
 	IP_castImage(m_imageSrc, BW_IMAGE, m_imageSrc);
 
 	// compute aspect ratio
-	m_ar = m_imageSrc->width() / m_imageSrc->height();
+	m_ar = (double) m_imageSrc->width() / m_imageSrc->height();
+
+	// Shows nails on the board
+	//m_ar = m_imageSrc->width() / m_imageSrc->height();
 
 	m_artWidth = 16.;
 	m_artHeight = 16. / m_ar;
@@ -468,12 +469,14 @@ MainWindow::preview()
 
 	// display requested image
 	int i;
-	for(i=0; i<2; i++)
+	for(i=0; i<4; i++)
 		if(m_radioDisplay[i]->isChecked()) break;
 
 	switch(i) {
 	case 0:	displayIn   (); break;
 	case 1:	displayOut  (); break;
+	case 2: displayOrtho(); break;
+	case 3: displayPersp(); break;
 	}
 }
 
@@ -563,10 +566,13 @@ void MainWindow::display(int flag)
 		w = m_stackWidget->width();
 		h = m_stackWidget->height();
 	}
-	else {
+	else 
+	{
 		I = m_imageDst;
-		w = m_valueBox[0]->value() / m_spacing;
-		h = m_valueBox[1]->value() / m_spacing;
+		w = m_imageDst->width();
+		h = m_imageDst->height();
+		//w = m_valueBox[0]->value() / m_spacing;
+		//h = m_valueBox[1]->value() / m_spacing;
 	}
 
 	// convert from ImagePtr to QImage to Pixmap
@@ -600,7 +606,7 @@ void MainWindow::displayGL(int flag)
 // Get image parameters.
 //
 void
-MainWindow::getParams(ImagePtr I, double spacing, double artWidth, double artHeight)
+MainWindow::getParams(ImagePtr &I, double &spacing, double &artWidth, double &artHeight)
 {
 	I = m_imageDst;
 	spacing = m_spacing;
@@ -614,7 +620,7 @@ MainWindow::getParams(ImagePtr I, double spacing, double artWidth, double artHei
 // Get image width.
 //
 void
-MainWindow::getArtWidth(double w)
+MainWindow::getArtWidth(double &w)
 {
 	w = m_artWidth;
 }
@@ -625,7 +631,7 @@ MainWindow::getArtWidth(double w)
 // Get image height.
 //
 void
-MainWindow::getArtHeight(double h)
+MainWindow::getArtHeight(double &h)
 {
 	h = m_artHeight;
 }

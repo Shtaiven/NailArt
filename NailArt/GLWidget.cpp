@@ -239,15 +239,22 @@ GLWidget::initDisplayLists(int flag)
 		m_boardList = glGenLists(1);
 		glNewList(m_boardList, GL_COMPILE);
 
+		ImagePtr I;
+		double spacing, artWidth, artHeight, ar;
+
+		//get nail spacing , and art dimension values
+		MainWindowP->getParams(I, spacing, artWidth, artHeight);
+		//MainWindowP->getArtWidth(artWidth);
+		//MainWindowP->getArtHeight(artHeight);
+
 		// compute aspect ratio
-		double artWidth, artHeight, ar;
-		MainWindowP->getArtWidth(artWidth);
-		MainWindowP->getArtHeight(artHeight);
 		ar = artWidth / artHeight;
 
 		if(artWidth > artHeight)
-		drawBoard(2, 2/ar, .05);
-		else	drawBoard(2*ar, 2, .05);
+			drawBoard(2, 2/ar, .05);
+		else	
+			drawBoard(2*ar, 2, .05);
+
 		glEndList();
 		
 		// draw single nail
@@ -291,43 +298,43 @@ GLWidget::drawBoard(float w, float h, float d)
 	glBegin(GL_QUADS);
 
 	// front
-	glVertex3f(-w,  h,  0);
-	glVertex3f(-w, -h,  0);
-	glVertex3f( w, -h,  0);
-	glVertex3f( w,  h,  0);
+	glVertex3f(-w, h, 0);
+	glVertex3f(-w, -h, 0);
+	glVertex3f(w, -h, 0);
+	glVertex3f(w, h, 0);
 
 	// back
-	glVertex3f(-w,  h,  d);
-	glVertex3f(-w, -h,  d);
-	glVertex3f( w, -h,  d);
-	glVertex3f( w,  h,  d);
+	glVertex3f(-w, h, -d);
+	glVertex3f(-w, -h, -d);
+	glVertex3f(w, -h, -d);
+	glVertex3f(w, h, -d);
 
 	// set the color to gray
 	glColor3f(0.5, 0.5, 0.5);
 
 	// right side
-	glVertex3f( w,  h,  0);
-	glVertex3f( w,  h,  d);
-	glVertex3f( w, -h,  d);
-	glVertex3f( w, -h,  0);
+	glVertex3f(w, h, 0);
+	glVertex3f(w, -h, 0);
+	glVertex3f(w, -h, -d);
+	glVertex3f(w, h, -d);
 
 	// left side
-	glVertex3f(-w,  h,  0);
-	glVertex3f(-w,  h,  d);
-	glVertex3f(-w, -h,  d);
-	glVertex3f(-w, -h,  0);
+	glVertex3f(-w, h, -d);
+	glVertex3f(-w, -h, -d);
+	glVertex3f(-w, -h, 0);
+	glVertex3f(-w, h, 0);
 
 	// top
-	glVertex3f(-w,  h,  0);
-	glVertex3f(-w,  h,  d);
-	glVertex3f( w,  h,  d);
-	glVertex3f( w,  h,  0);
+	glVertex3f(w, h, -d);
+	glVertex3f(-w, h, -d);
+	glVertex3f(-w, h, 0);
+	glVertex3f(w, h, 0);
 
 	// bottom
-	glVertex3f(-w, -h,  0);
-	glVertex3f(-w, -h,  d);
-	glVertex3f( w, -h,  d);
-	glVertex3f( w, -h,  0);
+	glVertex3f(w, -h, 0);
+	glVertex3f(-w, -h, 0);
+	glVertex3f(-w, -h, -d);
+	glVertex3f(w, -h, -d);
 	glEnd();
 }
 
@@ -404,7 +411,7 @@ GLWidget::drawNails()
 	double s = MIN(s1, s2);
 
 	glPushMatrix();
-	glTranslatef(-1, 1, 0);
+	glTranslatef(-1 + dx - (.04016 / 4), 1 - (.04016 / 4), 0); //TODO center the nails
 	glScalef(s, s, s);
 
 	// draw array of scaled cylinders
