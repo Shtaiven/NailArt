@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|x64">
@@ -16,7 +16,7 @@
     <Keyword>Qt4VSv1.0</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <PlatformToolSet>v120</PlatformToolSet>
     <OutputDirectory>release\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
@@ -25,7 +25,7 @@
     <IntermediateDirectory>obj\</IntermediateDirectory>
     <PrimaryOutput>NailArt</PrimaryOutput>
   </PropertyGroup>
-  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <PlatformToolSet>v120</PlatformToolSet>
     <OutputDirectory>debug\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
@@ -36,25 +36,25 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
-  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
-  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\</OutDir>
-    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">obj\</IntDir>
-    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">NailArt</TargetName>
-    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</IgnoreImportLibrary>
-    <LinkIncremental Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">false</LinkIncremental>
-    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\</OutDir>
-    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">obj\</IntDir>
-    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">NailArt</TargetName>
-    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</IgnoreImportLibrary>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NailArt</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NailArt</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>.;.;..\qip_win\IP\header;..\qip_win\MP\header;C:\Qt5.5.0\5.5\msvc2013_64\include;C:\Qt5.5.0\5.5\msvc2013_64\include\QtOpenGL;C:\Qt5.5.0\5.5\msvc2013_64\include\QtWidgets;C:\Qt5.5.0\5.5\msvc2013_64\include\QtGui;C:\Qt5.5.0\5.5\msvc2013_64\include\QtANGLE;C:\Qt5.5.0\5.5\msvc2013_64\include\QtCore;moc;C:\Qt5.5.0\5.5\msvc2013_64\mkspecs\win32-msvc2013;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:strictStrings -w34100 -w34189 -w44996 %(AdditionalOptions)</AdditionalOptions>
@@ -63,7 +63,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ObjectFileName>obj\</ObjectFileName>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>MaxSpeed</Optimization>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
@@ -72,11 +72,12 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <AdditionalDependencies>C:\Qt5.5.0\5.5\msvc2013_64\lib\qtmain.lib;shell32.lib;C:/Qt5.5.0/5.5/msvc2013_64/lib\Qt5Core.lib;..\qip_win\IP\lib\IP.lib;..\qip_win\MP\lib\MP.lib;opengl32.lib;glu32.lib;C:\Qt5.5.0\5.5\msvc2013_64\lib\Qt5OpenGL.lib;C:\Qt5.5.0\5.5\msvc2013_64\lib\Qt5Widgets.lib;C:\Qt5.5.0\5.5\msvc2013_64\lib\Qt5Gui.lib;C:\Qt5.5.0\5.5\msvc2013_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Qt5.5.0\5.5\msvc2013_64\lib;C:/Qt5.5.0/5.5/msvc2013_64/lib;..\qip_win\IP\lib;..\qip_win\MP\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -95,7 +96,7 @@
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>.;.;..\qip_win\IP\header;..\qip_win\MP\header;C:\Qt5.5.0\5.5\msvc2013_64\include;C:\Qt5.5.0\5.5\msvc2013_64\include\QtOpenGL;C:\Qt5.5.0\5.5\msvc2013_64\include\QtWidgets;C:\Qt5.5.0\5.5\msvc2013_64\include\QtGui;C:\Qt5.5.0\5.5\msvc2013_64\include\QtANGLE;C:\Qt5.5.0\5.5\msvc2013_64\include\QtCore;moc;C:\Qt5.5.0\5.5\msvc2013_64\mkspecs\win32-msvc2013;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-w34100 -w34189 -w44996 %(AdditionalOptions)</AdditionalOptions>
@@ -104,7 +105,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ObjectFileName>obj\</ObjectFileName>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
@@ -113,11 +114,12 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <AdditionalDependencies>C:\Qt5.5.0\5.5\msvc2013_64\lib\qtmaind.lib;shell32.lib;C:/Qt5.5.0/5.5/msvc2013_64/lib\Qt5Cored.lib;..\qip_win\IP\lib\IP.lib;..\qip_win\MP\lib\MP.lib;opengl32.lib;glu32.lib;C:\Qt5.5.0\5.5\msvc2013_64\lib\Qt5OpenGLd.lib;C:\Qt5.5.0\5.5\msvc2013_64\lib\Qt5Widgetsd.lib;C:\Qt5.5.0\5.5\msvc2013_64\lib\Qt5Guid.lib;C:\Qt5.5.0\5.5\msvc2013_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Qt5.5.0\5.5\msvc2013_64\lib;C:/Qt5.5.0/5.5/msvc2013_64/lib;..\qip_win\IP\lib;..\qip_win\MP\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -140,33 +142,58 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="change.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="moc\moc_MainWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="GLWidget.h">
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">GLWidget.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;C:\Qt5.5.0\5.5\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt5.5.0/5.5/msvc2013_64/mkspecs/win32-msvc2013 -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/NailArt&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/NailArt&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/qip_win/IP/header&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/qip_win/MP/header&quot; -IC:/Qt5.5.0/5.5/msvc2013_64/include -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtWidgets -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtGui -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtANGLE -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtCore GLWidget.h -o moc\moc_GLWidget.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC GLWidget.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">moc\moc_GLWidget.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">GLWidget.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;C:\Qt5.5.0\5.5\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt5.5.0/5.5/msvc2013_64/mkspecs/win32-msvc2013 -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/NailArt&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/NailArt&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/qip_win/IP/header&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/qip_win/MP/header&quot; -IC:/Qt5.5.0/5.5/msvc2013_64/include -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtWidgets -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtGui -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtANGLE -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtCore GLWidget.h -o moc\moc_GLWidget.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC GLWidget.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">moc\moc_GLWidget.cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+if errorlevel 1 goto VCEnd
+
+if errorlevel 1 goto VCEnd
+endlocal
+"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\moc\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\qip_win\IP\header" "-I.\..\qip_win\MP\header" "-IC:\Qt5.5.0\5.5\msvc2013_64\include" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtOpenGL" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtWidgets" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtGui" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtANGLE" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtCore" "-I.\moc" "-IC:\Qt5.5.0\5.5\msvc2013_64\mkspecs\win32-msvc2013"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing GLWidget.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+if errorlevel 1 goto VCEnd
+
+if errorlevel 1 goto VCEnd
+endlocal
+"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\moc\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\qip_win\IP\header" "-I.\..\qip_win\MP\header" "-IC:\Qt5.5.0\5.5\msvc2013_64\include" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtOpenGL" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtWidgets" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtGui" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtANGLE" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtCore" "-I.\moc" "-IC:\Qt5.5.0\5.5\msvc2013_64\mkspecs\win32-msvc2013"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing GLWidget.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="MainWindow.h">
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MainWindow.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;C:\Qt5.5.0\5.5\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt5.5.0/5.5/msvc2013_64/mkspecs/win32-msvc2013 -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/NailArt&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/NailArt&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/qip_win/IP/header&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/qip_win/MP/header&quot; -IC:/Qt5.5.0/5.5/msvc2013_64/include -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtWidgets -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtGui -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtANGLE -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtCore MainWindow.h -o moc\moc_MainWindow.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC MainWindow.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">moc\moc_MainWindow.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MainWindow.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;C:\Qt5.5.0\5.5\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt5.5.0/5.5/msvc2013_64/mkspecs/win32-msvc2013 -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/NailArt&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/NailArt&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/qip_win/IP/header&quot; -I&quot;C:/Users/Steven/Documents/Visual Studio 2013/Projects/NailArt/qip_win/MP/header&quot; -IC:/Qt5.5.0/5.5/msvc2013_64/include -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtWidgets -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtGui -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtANGLE -IC:/Qt5.5.0/5.5/msvc2013_64/include/QtCore MainWindow.h -o moc\moc_MainWindow.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
-      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC MainWindow.h</Message>
-      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">moc\moc_MainWindow.cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+if errorlevel 1 goto VCEnd
+
+if errorlevel 1 goto VCEnd
+endlocal
+"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\moc\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG "-I." "-I.\..\qip_win\IP\header" "-I.\..\qip_win\MP\header" "-IC:\Qt5.5.0\5.5\msvc2013_64\include" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtOpenGL" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtWidgets" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtGui" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtANGLE" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtCore" "-I.\moc" "-IC:\Qt5.5.0\5.5\msvc2013_64\mkspecs\win32-msvc2013"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing MainWindow.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+if errorlevel 1 goto VCEnd
+
+if errorlevel 1 goto VCEnd
+endlocal
+"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\moc\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB "-I." "-I.\..\qip_win\IP\header" "-I.\..\qip_win\MP\header" "-IC:\Qt5.5.0\5.5\msvc2013_64\include" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtOpenGL" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtWidgets" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtGui" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtANGLE" "-IC:\Qt5.5.0\5.5\msvc2013_64\include\QtCore" "-I.\moc" "-IC:\Qt5.5.0\5.5\msvc2013_64\mkspecs\win32-msvc2013"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing MainWindow.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\moc\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\moc\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="moc\moc_GLWidget.cpp" />
-    <ClCompile Include="moc\moc_MainWindow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" Qt5Version_x0020_x64="5.5.0" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
