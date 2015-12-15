@@ -244,8 +244,6 @@ GLWidget::initDisplayLists(int flag)
 
 		//get nail spacing , and art dimension values
 		MainWindowP->getParams(I, spacing, artWidth, artHeight);
-		//MainWindowP->getArtWidth(artWidth);
-		//MainWindowP->getArtHeight(artHeight);
 
 		// compute aspect ratio
 		ar = artWidth / artHeight;
@@ -403,15 +401,28 @@ GLWidget::drawNails()
 	MainWindowP->getParams(I, spacing, artWidth, artHeight);
 	double dx = spacing;
 	double dy = dx;
-	double s1 = 2*m_xmax / artWidth;
-	double s2 = 2*m_ymax / artHeight;
+	double s1;
+	double s2;
+	double ar = artWidth / artHeight;
 	
+	glPushMatrix();
+
+	// compute board side lengths based on aspect ratio and translate gl matrix appropriately (credit: Muhammad)
+	if (artWidth > artHeight)
+	{
+		s1 = 2 / artWidth;
+		s2 = (2/ar) / artHeight;
+		glTranslatef(-1 + (.04016 / 4), (1 / ar) - (.04016 / 4), 0);
+	}
+	else
+	{
+		s1 = (2*ar) / artWidth;
+		s2 = 2/ artHeight;
+		glTranslatef(-ar + (.04016 / 4), 1 - (.04016 / 4), 0);
+	}
 
 	// compute scale factor that relates art dimensions and board coordinates
 	double s = MIN(s1, s2);
-
-	glPushMatrix();
-	glTranslatef(-1 + dx - (.04016 / 4), 1 - (.04016 / 4), 0); //TODO center the nails
 	glScalef(s, s, s);
 
 	// draw array of scaled cylinders

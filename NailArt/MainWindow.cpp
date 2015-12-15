@@ -122,7 +122,7 @@ MainWindow::createGroupDimensions()
 		case 0: // art width
 			m_valueBox[i] = new QDoubleSpinBox;
 			m_valueBox[i]->setMinimum(1);
-			m_valueBox[i]->setMaximum(32);
+			m_valueBox[i]->setMaximum(99);
 			m_valueBox[i]->setValue(16.00);
 			m_valueBox[i]->setDecimals(2);
 			m_valueBox[i]->setSingleStep(0.1);
@@ -130,7 +130,7 @@ MainWindow::createGroupDimensions()
 		case 1: // art height
 			m_valueBox[i] = new QDoubleSpinBox;
 			m_valueBox[i]->setMinimum(1);
-			m_valueBox[i]->setMaximum(32);
+			m_valueBox[i]->setMaximum(99);
 			m_valueBox[i]->setValue(16.00);
 			m_valueBox[i]->setDecimals(2);
 			m_valueBox[i]->setSingleStep(0.1);
@@ -571,8 +571,6 @@ void MainWindow::display(int flag)
 		I = m_imageDst;
 		w = m_imageDst->width();
 		h = m_imageDst->height();
-		//w = m_valueBox[0]->value() / m_spacing;
-		//h = m_valueBox[1]->value() / m_spacing;
 	}
 
 	// convert from ImagePtr to QImage to Pixmap
